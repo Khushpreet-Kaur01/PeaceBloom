@@ -1,0 +1,21 @@
+# Node
+node_modules/
+.env
+build/
+dist/
+
+# React
+frontend/node_modules/
+frontend/tailwind-output.css
+frontend/build/
+
+# Python/Flask backend (example)
+backend/__pycache__/
+backend/venv/
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
