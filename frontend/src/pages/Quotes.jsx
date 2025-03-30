@@ -11,7 +11,7 @@ const quotes = [
 
 const Quotes = () => {
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-[#1a1a1a] text-white text-center">
+    <div className="min-h-screen pt-24 pb-12 px-6 bg-animated-neon text-white text-center">
       <h1 className="text-4xl font-bold text-neon-yellow mb-8 animate-fade-in">
         🌟 Daily Affirmations & Motivational Quotes
       </h1>

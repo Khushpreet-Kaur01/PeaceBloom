@@ -20,7 +20,8 @@ const articles = [
 
 const Articles = () => {
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-[#1a1a1a] text-white">
+    <div className="min-h-screen pt-24 pb-12 px-6 text-white text-center bg-animated-neon">
+
       <h1 className="text-4xl font-bold text-center text-neon-cyan mb-10 animate-fade-in">
         📖 Helpful Articles for Mental Wellness
       </h1>
