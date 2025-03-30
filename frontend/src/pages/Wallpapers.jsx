@@ -17,10 +17,10 @@ const Wallpapers = () => {
       <NewspaperBackground />
 
       <h1 className="text-4xl font-bold text-black mb-6">
-        🖼️ Download Peaceful Wallpapers
+        🖼️ Download Peaceful Wallpapers 🖼️
       </h1>
       <p className="text-gray-700 font-bold mb-10">
-        Click any wallpaper to download and bring calm to your device 💻📱
+        Click any wallpaper to download and bring calm to your device 📱
       </p>
 
       {/* Wallpapers Grid */}
@@ -30,7 +30,7 @@ const Wallpapers = () => {
             key={index}
             href={wallpaper.url}
             download
-            className="bg-black border border-neon-green rounded-xl overflow-hidden shadow-lg hover:scale-110 transition-all"
+            className="bg-black border border-neon-green rounded-xl overflow-hidden shadow-lg hover:scale-110 transition-all opacity-90" // opacity set to 0.9
           >
             <img
               src={wallpaper.url}
