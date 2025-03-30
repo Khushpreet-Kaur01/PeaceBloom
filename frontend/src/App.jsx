@@ -14,6 +14,9 @@ import SpotifyPage from './pages/SpotifyPage';
 import Articles from './pages/Articles';
 import Quotes from './pages/Quotes';
 import Wallpapers from './pages/Wallpapers';
+import JournalHistory from './pages/JournalHistory';
+
+
 
 function App() {
   return (
@@ -21,7 +24,7 @@ function App() {
       <div className="min-h-screen bg-[#1a1a1a] text-white font-sans">
         <Navbar />
 
-        <div className="pt-20">
+        <div className="pt-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -31,6 +34,8 @@ function App() {
             <Route path="/articles" element={<Articles />} />
             <Route path="/quotes" element={<Quotes />} />
             <Route path="/wallpapers" element={<Wallpapers />} />
+            <Route path="/history" element={<JournalHistory />} />
+            
           </Routes>
         </div>
 
