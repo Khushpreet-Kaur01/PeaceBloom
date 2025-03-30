@@ -68,7 +68,7 @@ const Journal = () => {
         />
       </div>
 
-      <main className="relative z-10 flex-grow pt-24 pb-12 px-6">
+      <main className="relative z-10 flex-grow pt-18 pb-12 px-6">
         <h1 className="text-4xl font-bold text-center text-black mb-7 mt-60">
           📝 Breathe. Feel. Write. Heal.
         </h1>

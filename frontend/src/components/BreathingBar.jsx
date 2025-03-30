@@ -45,12 +45,7 @@ const BreathingBar = () => {
           className="bg-gray-800 text-white py-8 transition-opacity duration-500 animate-fade-in text-center cursor-pointer"
           onClick={() => setIsVisible(false)}
         >
-          <div className="w-[20%] mx-auto">
-            <div
-              className="h-2 bg-green-400 rounded-full mb-4 transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
+          <br></br>
 
           <h2 className="text-3xl font-bold mb-2">
             {isInhale ? "Inhale..." : "Exhale..."}
@@ -59,6 +54,14 @@ const BreathingBar = () => {
           <p className="text-gray-400 text-md">
             Just breathe. Let it guide you back to calm.
           </p>
+
+          <div className="w-[20%] mx-auto">
+            <div
+              className="h-2 bg-green-400 rounded-full mb-4 transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import BreathingBar from './components/BreathingBar';
 import NewspaperBackground from './components/NewspaperBackground';
+import Navbar from './components/Navbar'; // 👉 ADD THIS
 
 // Pages
 import Home from './pages/Home';
@@ -21,11 +22,11 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-[#1a1a1a] text-white font-sans relative overflow-hidden">
-        {/* 🔥 Healing newspaper background */}
         <NewspaperBackground />
-
-        {/* 💨 Top component */}
         <BreathingBar />
+
+        {/* 🧭 Add the Navbar */}
+        <Navbar />
 
         <div className="pt-0 relative z-10">
           <Routes>
