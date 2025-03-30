@@ -10,15 +10,29 @@ const Journal = () => {
   const [submitted, setSubmitted] = useState(false);
   const [mood, setMood] = useState(null);
   const [showHistory, setShowHistory] = useState(false);
+  const [loading, setLoading] = useState(false); // Add loading state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!entry.trim()) return;
 
-    const moods = ['happy', 'sad', 'stressed', 'calm', 'neutral'];
-    const detectedMood = moods[Math.floor(Math.random() * moods.length)];
-
+    setLoading(true); // Start loading
     try {
+      const response = await fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: entry }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const detectedMood = data.predicted_emotion;
+
       await addDoc(collection(db, 'journals'), {
         text: entry,
         createdAt: Timestamp.now(),
@@ -28,8 +42,10 @@ const Journal = () => {
       setMood(detectedMood);
       setSubmitted(true);
     } catch (error) {
-      console.error('Error saving entry:', error);
-      alert('Failed to save journal entry.');
+      console.error('Error saving entry or predicting mood:', error);
+      alert('Failed to save journal entry or predict mood.');
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -42,10 +58,8 @@ const Journal = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-gray-200 text-black relative overflow-hidden z-0">
-      {/* Newspaper Background */}
       <NewspaperBackground textColor="black" />
 
-      {/* Journal History with higher z-index */}
       <div className="z-[9999] fixed top-0 left-0">
         <JournalHistory
           isOpen={showHistory}
@@ -54,7 +68,6 @@ const Journal = () => {
         />
       </div>
 
-      {/* Main Content */}
       <main className="relative z-10 flex-grow pt-24 pb-12 px-6">
         <h1 className="text-4xl font-bold text-center text-black mb-7 mt-60">
           📝 Breathe. Feel. Write. Heal.
@@ -82,9 +95,10 @@ const Journal = () => {
 
           <button
             type="submit"
-            className="self-center px-8 py-4 rounded-full bg-black text-white font-semibold shadow-xl border border-white hover:bg-gray-800 hover:shadow-2xl transition-all duration-300"
+            className={`self-center px-8 py-4 rounded-full bg-black text-white font-semibold shadow-xl border border-white hover:bg-gray-800 hover:shadow-2xl transition-all duration-300 ${loading ? 'opacity-50 cursor-wait' : ''}`}
+            disabled={loading} // Disable button while loading
           >
-            Save Entry
+            {loading ? 'Saving...' : 'Save Entry'}
           </button>
         </form>
 
