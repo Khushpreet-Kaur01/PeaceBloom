@@ -38,7 +38,7 @@ PeaceBloom/
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/channpreetsingh/PeaceBloom.git](https://www.google.com/search?q=https://github.com/channpreetsingh/PeaceBloom.git)
+   git clone https://www.google.com/search?q=https://github.com/channpreetsingh/PeaceBloom.git
    cd PeaceBloom
    ```
 
