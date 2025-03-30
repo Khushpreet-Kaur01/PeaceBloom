@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => (
-  <nav className="bg-black text-neon-yellow text-sm py-3 px-6 flex justify-center gap-6 sticky top-0 z-50">
+  <nav className="bg-black text-neon-green text-sm py-3 px-6 flex justify-center gap-6 sticky top-0 z-50">
     <Link to="/" className="hover:underline">Home</Link>
     <Link to="/journal" className="hover:underline">Journal</Link>
     <Link to="/youtube" className="hover:underline">YouTube</Link>
