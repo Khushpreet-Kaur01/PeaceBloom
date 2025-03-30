@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from "react-router-dom";
+import NewspaperBackground from '../components/NewspaperBackground';
 
 const affirmations = [
   "You are loved.",
@@ -32,7 +33,6 @@ const Login = () => {
     e.preventDefault();
 
     if (inputAffirmation.trim().toLowerCase() !== displayedAffirmation.toLowerCase()) {
-
       alert("🛑 Please type the affirmation exactly to continue.");
       return;
     }
@@ -48,16 +48,17 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-[#1a1a1a] text-white flex flex-col items-center justify-center">
-      <div className="max-w-md w-full bg-[#2a2a2a] border border-neon-cyan rounded-2xl p-8 shadow-xl animate-fade-in">
-        <h1 className="text-3xl font-bold text-neon-pink text-center mb-6">Login to PeaceBloom 🌸</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-white to-gray-200 text-black relative overflow-hidden z-0">
+      <NewspaperBackground textColor="black" />
+      <main className="z-10 max-w-md w-full bg-white border border-gray-300 rounded-2xl p-8 shadow-xl animate-fade-in">
+        <h1 className="text-3xl font-bold text-center text-black mb-6">Login to PeaceBloom 🌱</h1>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block mb-1 text-gray-300">Email</label>
+            <label className="block mb-1 text-gray-700">Email</label>
             <input
               type="email"
-              className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-neon-cyan text-white"
+              className="w-full p-3 rounded-lg bg-gray-50 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-black text-black"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -65,10 +66,10 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block mb-1 text-gray-300">Password</label>
+            <label className="block mb-1 text-gray-700">Password</label>
             <input
               type="password"
-              className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-neon-cyan text-white"
+              className="w-full p-3 rounded-lg bg-gray-50 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-black text-black"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -76,12 +77,12 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block mb-1 text-gray-300">💬 Write this affirmation (CAPTCHA)</label>
-            <p className="text-sm text-purple-300 font-semibold mb-2 italic">"{displayedAffirmation}"</p>
+            <label className="block mb-1 text-gray-700">💬 Write this affirmation (CAPTCHA)</label>
+            <p className="text-sm text-green-600 font-semibold mb-2 italic">"{displayedAffirmation}"</p>
             <input
               type="text"
               placeholder="Type the affirmation above"
-              className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-neon-pink text-white"
+              className="w-full p-3 rounded-lg bg-gray-50 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-black text-black"
               value={inputAffirmation}
               onChange={(e) => setInputAffirmation(e.target.value)}
               required
@@ -90,12 +91,12 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-neon-cyan text-black font-semibold py-3 rounded-lg hover:scale-105 transition"
+            className="w-full bg-black text-white font-semibold py-3 rounded-lg shadow-xl hover:bg-gray-900 hover:shadow-2xl border border-white transition-all duration-300"
           >
             Login
           </button>
         </form>
-      </div>
+      </main>
     </div>
   );
 };

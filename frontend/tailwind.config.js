@@ -10,6 +10,10 @@ module.exports = {
         'neon-pink': '#FF6EC7',
         'neon-cyan': '#00FFFF',
         'neon-yellow': '#F4F90A',
+        
+  'neon-green': '#39FF14',
+
+
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out both',

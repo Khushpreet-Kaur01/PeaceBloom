@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import db from '../firebase';
 import JournalHistory from './JournalHistory';
+import NewspaperBackground from '../components/NewspaperBackground';
 
 const Journal = () => {
   const [entry, setEntry] = useState('');
@@ -40,56 +41,74 @@ const Journal = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-animated-neon text-white relative">
-      <JournalHistory
-        isOpen={showHistory}
-        onClose={() => setShowHistory(false)}
-        onSelectEntry={handleHistoryClick}
-      />
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-gray-200 text-black relative overflow-hidden z-0">
+      {/* Newspaper Background */}
+      <NewspaperBackground textColor="black" />
 
-      <h1 className="text-4xl font-bold text-center text-neon-cyan mb-6">📝 Today’s Journal</h1>
-
-      <form onSubmit={handleSubmit} className="max-w-3xl mx-auto flex flex-col gap-4 animate-fade-in">
-        <textarea
-          value={entry}
-          onChange={(e) => setEntry(e.target.value)}
-          placeholder="How are you feeling today? Write freely…"
-          rows={8}
-          className="w-full p-5 text-lg bg-[#2a2a2a] text-white border border-neon-cyan rounded-xl focus:outline-none focus:ring-2 focus:ring-neon-cyan placeholder:text-gray-400 resize-none"
+      {/* Journal History with higher z-index */}
+      <div className="z-[9999] fixed top-0 left-0">
+        <JournalHistory
+          isOpen={showHistory}
+          onClose={() => setShowHistory(false)}
+          onSelectEntry={handleHistoryClick}
         />
+      </div>
 
-        <button
-          type="submit"
-          className="self-center px-6 py-3 rounded-full bg-neon-pink text-white font-semibold shadow-md hover:scale-105 transition-all"
+      {/* Main Content */}
+      <main className="relative z-10 flex-grow pt-24 pb-12 px-6">
+        <h1 className="text-4xl font-bold text-center text-black mb-7 mt-60">
+          📝 Breathe. Feel. Write. Heal.
+        </h1>
+
+        {submitted && mood && !showHistory && (
+          <div className="flex justify-center mb-10 mt-[-12px]">
+            <div className="border-4 border-green-400 p-4 rounded-xl text-center text-white font-bold text-lg bg-black shadow-lg">
+              🧠 Mood Detected: {mood.toUpperCase()}
+            </div>
+          </div>
+        )}
+
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-3xl mx-auto flex flex-col gap-4 animate-fade-in mt-6"
         >
-          Save Entry
-        </button>
-      </form>
+          <textarea
+            value={entry}
+            onChange={(e) => setEntry(e.target.value)}
+            placeholder="How are you feeling today? Write freely…"
+            rows={8}
+            className="w-full p-5 text-lg bg-white text-black border border-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-600 resize-none"
+          />
 
-      {submitted && mood && !showHistory && (
-        <div className="mt-10 text-center animate-slide-in">
-          <h2 className="text-xl font-semibold text-neon-green mb-2">
-            🧠 Mood Detected: {mood.toUpperCase()}
-          </h2>
+          <button
+            type="submit"
+            className="self-center px-8 py-4 rounded-full bg-black text-white font-semibold shadow-xl border border-white hover:bg-gray-800 hover:shadow-2xl transition-all duration-300"
+          >
+            Save Entry
+          </button>
+        </form>
 
-          <div className="mb-4 flex justify-center gap-4">
-            <button
-              onClick={() => setShowHistory(true)}
-              className="px-5 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-            >
-              📖 View History
-            </button>
+        {submitted && mood && !showHistory && (
+          <div className="mt-10 text-center animate-slide-in">
+            <div className="mb-6 flex justify-center gap-4">
+              <button
+                onClick={() => setShowHistory(true)}
+                className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300"
+              >
+                📖 View History
+              </button>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
+              <Link to="/youtube" className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300">🎥 YouTube Playlist</Link>
+              <Link to="/spotify" className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300">🎧 Spotify</Link>
+              <Link to="/articles" className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300">📖 Articles</Link>
+              <Link to="/quotes" className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300">🌟 Quotes</Link>
+              <Link to="/wallpapers" className="px-6 py-3 bg-black text-white rounded-lg border border-white shadow hover:bg-gray-800 hover:shadow-xl transition-all duration-300">🖼️ Wallpapers</Link>
+            </div>
           </div>
-
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
-            <Link to="/youtube" className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">🎥 YouTube Playlist</Link>
-            <Link to="/spotify" className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">🎧 Spotify</Link>
-            <Link to="/articles" className="px-5 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition">📖 Articles</Link>
-            <Link to="/quotes" className="px-5 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-300 transition">🌟 Quotes</Link>
-            <Link to="/wallpapers" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">🖼️ Wallpapers</Link>
-          </div>
-        </div>
-      )}
+        )}
+      </main>
     </div>
   );
 };

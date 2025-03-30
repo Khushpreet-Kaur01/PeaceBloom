@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import BreathingBar from './components/BreathingBar';
+import NewspaperBackground from './components/NewspaperBackground';
 
 // Pages
 import Home from './pages/Home';
@@ -16,15 +17,17 @@ import Quotes from './pages/Quotes';
 import Wallpapers from './pages/Wallpapers';
 import JournalHistory from './pages/JournalHistory';
 
-
-
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#1a1a1a] text-white font-sans">
-        <Navbar />
+      <div className="min-h-screen bg-[#1a1a1a] text-white font-sans relative overflow-hidden">
+        {/* 🔥 Healing newspaper background */}
+        <NewspaperBackground />
 
-        <div className="pt-0">
+        {/* 💨 Top component */}
+        <BreathingBar />
+
+        <div className="pt-0 relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -35,7 +38,6 @@ function App() {
             <Route path="/quotes" element={<Quotes />} />
             <Route path="/wallpapers" element={<Wallpapers />} />
             <Route path="/history" element={<JournalHistory />} />
-            
           </Routes>
         </div>
 

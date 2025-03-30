@@ -1,0 +1,29 @@
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes scroll-right {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+  }
+  
+  .line {
+    will-change: transform;
+    white-space: nowrap;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.2;
+    color: black; /* 👈 This sets the text color */
+  }
+  
+  
+  .scroll-left {
+    animation-name: scroll-left;
+  }
+  
+  .scroll-right {
+    animation-name: scroll-right;
+  }
+  

@@ -1,96 +1,108 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
+/* Animations */
 @layer utilities {
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes slideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out both;
-  }
-
-  .animate-slide-in {
-    animation: slideIn 0.8s ease-out both;
-  }
+  .animate-fade-in { animation: fadeIn 0.8s ease-out both; }
+  .animate-slide-in { animation: slideIn 0.8s ease-out both; }
 }
 
-/* Optional smooth scroll */
-html {
-  scroll-behavior: smooth;
-  background-color: #1a1a1a;
-}
-
-/* Optional scrollbar styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #111;
-}
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.bg-animated-neon {
-  background: linear-gradient(270deg, #0f2027, #6cb9d3, #2c5364, #1c1c1c);
-
-  background-size: 800% 800%;
-  animation: gradientFlow 15s ease infinite;
-}
-
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body,
-#root {
-  min-height: 100vh;
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #1c1c1c);
-  background-size: 800% 800%;
-  animation: gradientBG 20s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-html, body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
+/* Base Layout */
 html, body, #root {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: transparent; 
+  font-family: 'Courier New', Courier, monospace;
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom, #ffffff, #eeeeee);
+  color: #111;
+}
+
+/* Neon Yellow Accent */
+.btn-neon {
+  background-color: #eaff00;
+  color: black;
+  font-weight: bold;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.3s ease;
+}
+.btn-neon:hover {
+  background-color: #d4ff00;
+}
+
+/* Black Newspaper Background */
+.moving-quotes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: -1;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 100%;
+  animation: scrollQuotes 35s linear infinite;
+}
+
+@keyframes scrollQuotes {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.moving-quotes p {
+  display: inline-block;
+  margin: 0 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.2;
+  white-space: nowrap;
+}
+
+/* Editor (ReactQuill) Styling */
+.quill-editor-custom .ql-toolbar {
+  background-color: #f0f0f0;
+  border: 1px solid #d4d4d4;
+  border-radius: 12px 12px 0 0;
+}
+.quill-editor-custom .ql-toolbar button {
+  color: #222;
+}
+.quill-editor-custom .ql-container {
+  background-color: #ffffff;
+  color: #111;
+  border: 1px solid #d4d4d4;
+  border-radius: 0 0 12px 12px;
+  min-height: 300px;
+  font-size: 1.125rem;
+  padding: 1rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ccc;
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
