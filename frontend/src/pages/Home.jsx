@@ -20,15 +20,12 @@ const Home = () => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <Link to="/login" className="px-6 py-3 rounded-full bg-green-500 hover:bg-yellow-600 text-black font-semibold shadow-md border border-white transition-all">
-            Login
-          </Link>
-          <Link to="/journal" className="px-6 py-3 rounded-full bg-black hover:bg-yellow-600 text-white font-semibold shadow-md border border-green-400 transition-all">
-            Start Journaling
-          </Link>
-          <Link to="/wallpapers" className="px-6 py-3 rounded-full bg-green-500 hover:bg-yellow-600 text-black font-semibold shadow-md border border-white transition-all">
-            Wallpapers
-          </Link>
+          
+          <Link to="/journal" className="px-6 py-3 rounded-full bg-black hover:bg-pink-500 text-white font-semibold shadow-md border border-green-400 transition-all">
+  Start Journaling
+</Link>
+
+          
         </div>
 
         <p className="text-sm text-gray-400 max-w-xl mx-auto">
