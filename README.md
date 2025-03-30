@@ -31,7 +31,7 @@ PeaceBloom/
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.10
 - Node.js and npm (Node Package Manager)
 
 ### Installation
@@ -45,9 +45,9 @@ PeaceBloom/
 2. **Set up the backend API:**
    ```bash
    cd api
-   python3 -m venv venv  # Create a virtual environment (optional but recommended)
-   source venv/bin/activate  # Activate the virtual environment (Linux/macOS)
-   venv\Scripts\activate  # Activate the virtual environment (Windows)
+   python3 -m venv project_venv  # Create a virtual environment (optional but recommended)
+   source project_venv/bin/activate  # Activate the virtual environment (Linux/macOS)
+   project_venv\Scripts\activate  # Activate the virtual environment (Windows)
    pip install -r requirements.txt  # Install Python dependencies
    ```
 
@@ -76,8 +76,8 @@ PeaceBloom/
 ## Usage
 
 1. Open the PeaceBloom application in your browser.
-2. Enter the text you want to analyze in the input field.
-3. Click the "Analyze" button.
+2. Enter the text you want to journal in the input field.
+3. Click the "Save Entry" button.
 4. The application will display the predicted emotion for the given text.
 
 ## Technologies Used
