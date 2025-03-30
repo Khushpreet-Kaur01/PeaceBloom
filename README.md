@@ -1,4 +1,3 @@
-```markdown
 # PeaceBloom
 
 ## Overview
@@ -95,26 +94,3 @@ PeaceBloom/
   - Node.js
   - npm
   - Tailwind CSS
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request with your improvements or bug fixes.
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes.
-4. Push to the branch.
-5. Submit a pull request.
-
-## License
-
-This project is licensed under the [LICENSE](LICENSE) file.
-
-## Acknowledgements
-
-- Thanks to the contributors of the libraries and tools used in this project.
-
-## Contact
-
-For any questions or suggestions, please contact [your contact information].
-```
