@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import BreathingBar from './components/BreathingBar';
 import NewspaperBackground from './components/NewspaperBackground';
-import Navbar from './components/Navbar'; // 👉 ADD THIS
+import Navbar from './components/Navbar';
 
 // Pages
 import Home from './pages/Home';
@@ -16,7 +16,7 @@ import SpotifyPage from './pages/SpotifyPage';
 import Articles from './pages/Articles';
 import Quotes from './pages/Quotes';
 import Wallpapers from './pages/Wallpapers';
-import JournalHistory from './pages/JournalHistory';
+import JournalHistoryPage from './pages/JournalHistoryPage';
 
 function App() {
   return (
@@ -24,8 +24,6 @@ function App() {
       <div className="min-h-screen bg-[#1a1a1a] text-white font-sans relative overflow-hidden">
         <NewspaperBackground />
         <BreathingBar />
-
-        {/* 🧭 Add the Navbar */}
         <Navbar />
 
         <div className="pt-0 relative z-10">
@@ -38,7 +36,7 @@ function App() {
             <Route path="/articles" element={<Articles />} />
             <Route path="/quotes" element={<Quotes />} />
             <Route path="/wallpapers" element={<Wallpapers />} />
-            <Route path="/history" element={<JournalHistory />} />
+            <Route path="/journal-history" element={<JournalHistoryPage />} /> {/* ✅ Fixed route */}
           </Routes>
         </div>
 
