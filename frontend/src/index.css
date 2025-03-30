@@ -1,57 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Custom animations */
-@layer utilities {
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out both;
-  }
-
-  .animate-slide-in {
-    animation: slideIn 0.8s ease-out both;
-  }
+.bg-animated-neon {
+  background: linear-gradient(270deg, #ff6ec7, #00ffff, #39ff14, #f4f90a);
+  background-size: 800% 800%;
+  animation: gradientFlow 15s ease infinite;
 }
 
-/* Optional smooth scroll */
-html {
-  scroll-behavior: smooth;
-  background-color: #1a1a1a;
-}
-
-/* Optional scrollbar styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #111;
-}
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
