@@ -13,7 +13,7 @@ const BreathingBar = () => {
         if (isInhale) return prev < 100 ? prev + 2 : 100;
         else return prev > 0 ? prev - 2 : 0;
       });
-    }, 80); // faster = quicker transitions (half the time)
+    }, 80);
 
     if (progress === 100) setIsInhale(false);
     if (progress === 0) setIsInhale(true);
@@ -23,17 +23,18 @@ const BreathingBar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 transition-all duration-700">
-      {/* 🌿 Logo Header */}
+      {/* 🌿 Logo Header (Transparent) */}
       {!isVisible && (
         <div
-          className="bg-[#111] text-white text-center py-12 cursor-pointer transition-opacity duration-500 animate-fade-in"
+          className="text-white text-center py-12 cursor-pointer transition-opacity duration-500 animate-fade-in"
           onClick={() => setIsVisible(true)}
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }} // Add semi-transparent background
         >
           <h1 className="text-5xl font-extrabold text-neon-green tracking-wide mb-3">
             PeaceBloom
           </h1>
           <p className="text-xl text-gray-400">
-            Tap to begin your mindful breathing 🌬️
+            Tap here to begin your mindful breathing
           </p>
         </div>
       )}
@@ -42,9 +43,9 @@ const BreathingBar = () => {
       {isVisible && (
         <div
           className="bg-gray-800 text-white py-8 transition-opacity duration-500 animate-fade-in text-center cursor-pointer"
-          onClick={() => setIsVisible(false)} // Toggle off on click
+          onClick={() => setIsVisible(false)}
         >
-          <div className="w-[20%] mx-auto"> {/* 1/3 of earlier ~33% width */}
+          <div className="w-[20%] mx-auto">
             <div
               className="h-2 bg-green-400 rounded-full mb-4 transition-all duration-300"
               style={{ width: `${progress}%` }}

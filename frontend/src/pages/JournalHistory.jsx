@@ -24,6 +24,7 @@ const JournalHistory = ({ isOpen, onClose, onSelectEntry }) => {
       className={`fixed top-0 left-0 h-full w-80 bg-[#121212] text-white shadow-xl z-50 transform transition-transform duration-300 ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
+      style={{ zIndex: 9999 }} // Increased zIndex to bring it to the front
     >
       <div className="p-4 border-b border-gray-700 flex justify-between items-center">
         <h2 className="text-xl font-semibold text-[#00ffff]">📚 Journal History</h2>
