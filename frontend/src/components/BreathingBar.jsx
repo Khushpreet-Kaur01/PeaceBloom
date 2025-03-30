@@ -44,6 +44,7 @@ const BreathingBar = () => {
         <div
           className="bg-gray-800 text-white py-8 transition-opacity duration-500 animate-fade-in text-center cursor-pointer"
           onClick={() => setIsVisible(false)}
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
         >
           <br></br>
 
@@ -57,7 +58,7 @@ const BreathingBar = () => {
 
           <div className="w-[20%] mx-auto">
             <div
-              className="h-2 bg-green-400 rounded-full mb-4 transition-all duration-300"
+              className="h-2 bg-neon-green rounded-full mb-4 transition-all duration-300"
               style={{ width: `${progress}%` }}
             ></div>
           </div>

@@ -24,9 +24,11 @@ const YoutubePage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-white to-gray-200 text-black relative overflow-hidden">
-      {/* Newspaper Background */}
-      <NewspaperBackground textColor="black" />
+    <div className="min-h-screen pt-12 pb-12 px-6 bg-gradient-to-b from-white to-gray-200 text-black relative overflow-hidden mt-32">
+  {/* Newspaper Background */}
+  <NewspaperBackground textColor="black" />
+
+
 
       <h1 className="text-4xl font-bold text-center text-black mb-6 animate-fade-in">
         🎥 Peaceful YouTube Playlist
